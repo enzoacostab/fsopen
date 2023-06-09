@@ -1,0 +1,9 @@
+title Create a new note
+
+Browser->Web page: Write something in the text field
+Web page->Server: Sends user input
+Server->Database: Creates a new note with user input
+Database->Server: Confirms that the new note was saved
+Server->Web page: Sends a response to the browser
+Web page->Browser: Shows the response to the user
+

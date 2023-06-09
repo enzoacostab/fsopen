@@ -1,0 +1,10 @@
+title Accessing the single-page application version of the notes application
+
+User->Browser: Enters https://studies.cs.helsinki.fi/exampleapp/spa
+Browser->Server: Sends a GET request for /spa
+Server->Browser: Sends the HTML and JavaScript code necessary to load the page
+Browser->Server: Sends a GET request for /api/notes
+Server->Database: Gets all notes stored in the database
+Database->Server: Sends notes to server
+Server->Browser: Sends notes to browser
+Browser->User: Displays notes to user

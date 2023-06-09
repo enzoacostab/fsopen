@@ -1,0 +1,12 @@
+title Creating a new note using the single-page application version of the application
+
+User->Browser: Enters https://studies.cs.helsinki.fi/exampleapp/spa
+Browser->Server: Sends a GET request for /spa
+Server->Browser: Sends the HTML and JavaScript code necessary to load the page
+Browser->User: Displays the page to the user
+User->Browser: Writes the content of the note in the text field and clicks on the "Save" button
+Browser->Server: Sends a POST request for /api/notes with the data of the new note
+Server->Database: Stores the new note in the database
+Database->Server: Confirms that the note has been stored correctly
+Server->Browser: Sends a 201 Created response to the browser
+
