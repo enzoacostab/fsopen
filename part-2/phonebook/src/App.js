@@ -36,10 +36,7 @@ const App = () => {
   }
   const handleSubmit=(event)=>{
     event.preventDefault();
-    if (persons && persons.some(x=>x.name===newName && x.number===newNum)){
-      alert(`The user ${newName} already exists`);
-    }
-    else if (persons && !persons.some(x=>x.name===newName)){
+    if (persons && !persons.some(x=>x.name===newName)){
       numbers.create(obj)
       .then(res=>{
       setPersons(persons.concat(res));
@@ -47,23 +44,27 @@ const App = () => {
       ms();
       setNewName('');
       setNewNum('');
-    });
+    }).catch(error=>{setError('enter a valid name and number');me()});
     }
     else{
       if (window.confirm(`The user ${newName} already exists, you want to replace the number`)){
       let pe=persons.find(p=>p.name===newName);
-      console.log(pe);
       const changedPer={...pe,number:newNum};
-      console.log(changedPer);
       pe.number=newNum;
       numbers.update(pe.id,changedPer)
       .then(res=>{setPersons(persons.map(per=>per.id!==pe.id ? per : res));
         setSuccess('modified');
         ms();})
       .catch(error => {
-        setPersons(persons.filter(per => per.id !== pe.id));
-        setError('the user was already deleted from server');
-        me();
+        if (!persons.some(x=>x.id===pe.id)){
+          setPersons(persons.filter(per => per.id !== pe.id));
+          setError('the user was already deleted from server');
+          me();
+        }
+        else{
+          setError('enter a valid name and number');
+          me();
+        }
       })
       };
     }

@@ -3,7 +3,7 @@
 }
 .success{
   width: 100%;
-  height: 40px;
+  height: min-content;
   border: 2px green solid;
   color: green;
   padding: 10px;
@@ -11,7 +11,7 @@
 }
 .error{
   width: 100%;
-  height: 40px;
+  height: min-content;
   border: 2px red solid;
   color: red;
   padding: 10px;
