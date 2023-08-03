@@ -11,15 +11,22 @@ content-type: application/json
     "url":"adwemv",
     "likes":1
 }
+###
+POST http://localhost:3003/api/blogs/64cac9ff2790ec3d1c9cc1e5/comments HTTP/1.1
+content-type: application/json
+
+{
+    "comments":"asdnnnb"
+}
 
 ###
 POST http://localhost:3003/api/users HTTP/1.1
 content-type: application/json
 
 {
-    "username":"enzo",
-    "name":"enzo",
-    "password":"123"
+    "username":"evff",
+    "name":"dsf",
+    "password":"124"
 }
 
 ###
